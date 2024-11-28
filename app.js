@@ -1,8 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const colors = require('colors');
+
 const routes = require("./routes/index.js"); 
-const connectDB = require("./config/db"); // Importa la conexión a MongoDB
+const connectDB = require("./config/db"); 
 
 dotenv.config();
 const app = express();
@@ -28,5 +30,5 @@ app.post("/api/data", (req, res) => {
 app.use("/api", routes);
 
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log("Servidor".blue+" corriendo ".green+ "en http://localhost:"+`${PORT}`.yellow);
 });
