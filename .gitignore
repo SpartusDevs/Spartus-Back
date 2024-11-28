@@ -1,0 +1,30 @@
+# Entornos sensibles
+.env
+.env.local
+.env.*.local
+
+# Dependencias y builds
+node_modules/
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sistemas operativos
+.DS_Store  # MacOS
+Thumbs.db  # Windows
+
+# Editores y entornos
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+coverage/
+
+# Configuración local
+*.local
