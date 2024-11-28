@@ -1,8 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const routes = require("./routes/index.js"); 
+
 dotenv.config();
-// Configuración del servidor
 const app = express();
 const PORT = process.env.PORT || 5002;
 
@@ -20,6 +21,10 @@ app.post("/api/data", (req, res) => {
   console.log("Datos recibidos:", data);
   res.status(201).json({ message: "Datos recibidos correctamente", data });
 });
+
+
+app.use("/api", routes);
+
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
