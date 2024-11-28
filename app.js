@@ -18,13 +18,7 @@ app.use(express.json());
 
 // Rutas
 app.get("/", (req, res) => {
-  res.send("¡Bienvenido a mi backend con Node.js y Express!");
-});
-
-app.post("/api/data", (req, res) => {
-  const data = req.body;
-  console.log("Datos recibidos:", data);
-  res.status(201).json({ message: "Datos recibidos correctamente", data });
+  res.send("¡Bienvenido a mi Spartus App!");
 });
 
 app.use("/api", routes);
