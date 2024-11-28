@@ -2,10 +2,13 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const routes = require("./routes/index.js"); 
+const connectDB = require("./config/db"); // Importa la conexión a MongoDB
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5002;
+
+connectDB();
 
 // Middleware
 app.use(cors()); 
@@ -22,9 +25,7 @@ app.post("/api/data", (req, res) => {
   res.status(201).json({ message: "Datos recibidos correctamente", data });
 });
 
-
 app.use("/api", routes);
-
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
