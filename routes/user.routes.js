@@ -1,17 +1,14 @@
 const express = require("express");
-
-
+const userController = require('../controllers/UserController');
 const router = express.Router();
 
-router.post("/", ()=>{
-});
-router.post('/verify-email', ()=>{});
-router.post('/resend-verification', ()=>{});
-router.get("/", ()=>{});
-router.get("/:id", ()=>{});
-router.delete("/:id", ()=>{});
-router.put("/:id", ()=>{});
-router.post("/login", ()=>{});
+
+
+router.post('/', userController.createUser);
+router.get('/', userController.getAllUsers);
+router.get('/:id', userController.getUserById);
+router.put('/:id', userController.updateUser);
+router.delete('/:id', userController.deleteUser);
 
 
 
