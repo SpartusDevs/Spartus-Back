@@ -55,10 +55,9 @@ const deleteUser = async (req, res) => {
 };
 
 const approveOrDisapproveUser = async (req, res) => {
-  /* por que si paso el barer token jwt no captura el req.user.id */
   const { userId, actionData } = req.body; 
   try {
-    const updatedUser = await userService.approveOrDisapproveUser(req.user._id, userId, actionData);
+    const updatedUser = await userService.approveOrDisapproveUser(req.user.userId, userId, actionData);
     res.status(200).json({ message: 'Usuario actualizado exitosamente', user: updatedUser });
   } catch (error) {
     res.status(500).json({ message: error.message });

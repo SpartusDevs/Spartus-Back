@@ -49,6 +49,7 @@ const approveOrDisapproveUser = async (adminId, userId, actionData) => {
   try {
     const adminUser = await User.findById(adminId);
     if (!adminUser || adminUser.role !== 'admin') {
+      console.log('Admin user '+JSON.stringify(adminUser))
       throw new Error('Solo un administrador puede aprobar o desaprobar usuarios');
     }
 
