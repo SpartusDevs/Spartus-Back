@@ -1,10 +1,12 @@
 const express = require("express");
+const axios = require("axios");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const colors = require('colors');
 
 const routes = require("./routes/index.js"); 
 const connectDB = require("./config/db"); 
+const { sendMessageToOpenAI } = require("./apis/chatGtp.js");
 
 dotenv.config();
 const app = express();
@@ -22,6 +24,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", routes);
+
+app.post('/api/chat', sendMessageToOpenAI);
+
 
 app.listen(PORT, () => {
   console.log("Servidor".blue+" corriendo ".green+ "en http://localhost:"+`${PORT}`.yellow);
