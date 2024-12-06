@@ -4,7 +4,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const colors = require('colors');
 
-const routes = require("./routes/index.js"); 
+const routes = require("./src/routes/index.js"); 
 const connectDB = require("./config/db"); 
 const { sendMessageToOpenAI } = require("./apis/chatGtp.js");
 

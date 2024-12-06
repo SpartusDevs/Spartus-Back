@@ -2,7 +2,7 @@ const express = require('express');
 const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');
-const multer = require('../config/multerConfig'); // Importar configuración de multer
+const multer = require('../../config/multerConfig'); // Importar configuración de multer
 const { v4: uuidv4 } = require('uuid'); // Para generar nombres únicos
 
 const router = express.Router();
