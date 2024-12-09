@@ -18,6 +18,18 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+const getUserByToken = async (req, res) => {
+  try {
+    const user = await userService.getUserById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const getUserById = async (req, res) => {
   try {
     const user = await userService.getUserById(req.params.id);
@@ -48,7 +60,7 @@ const updateMyProfile = async (req, res) => {
     if (!updatedUser) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
-    res.status(200).json(updatedUser);
+    res.status(200).json({user:updatedUser});
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -84,4 +96,5 @@ module.exports = {
   updateMyProfile,
   deleteUser,
   approveOrDisapproveUser,
+  getUserByToken
 };

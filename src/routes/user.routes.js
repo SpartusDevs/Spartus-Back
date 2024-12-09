@@ -8,11 +8,11 @@ const router = express.Router();
 
 router.post('/', authController.registerUser);
 router.post('/login', authController.loginUser);
+router.get('/authToken',authMiddleware, userController.getUserByToken)
 router.get('/', userController.getAllUsers);
 router.get('/:id', userController.getUserById);
 router.put('/edit_profile',authMiddleware, userController.updateMyProfile);
 router.put('/:id',  userController.updateUser);
-
 router.delete('/:id', userController.deleteUser);
 
 router.post('/approve-disapprove', authMiddleware, userController.approveOrDisapproveUser);
