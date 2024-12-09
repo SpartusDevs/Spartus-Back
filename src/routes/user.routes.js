@@ -10,7 +10,9 @@ router.post('/', authController.registerUser);
 router.post('/login', authController.loginUser);
 router.get('/', userController.getAllUsers);
 router.get('/:id', userController.getUserById);
-router.put('/:id', userController.updateUser);
+router.put('/edit_profile',authMiddleware, userController.updateMyProfile);
+router.put('/:id',  userController.updateUser);
+
 router.delete('/:id', userController.deleteUser);
 
 router.post('/approve-disapprove', authMiddleware, userController.approveOrDisapproveUser);

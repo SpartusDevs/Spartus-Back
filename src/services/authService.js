@@ -57,7 +57,7 @@ const loginUser = async ({ email, password }) => {
 
     const userObj = user.toObject();
     const {
-      password: userPassword, // Cambiar el nombre durante la desestructuración
+      password: userPassword,
       updatedAt,
       createdAt,
       ...userWithoutSensitiveData
