@@ -55,11 +55,21 @@ const loginUser = async ({ email, password }) => {
       { expiresIn: '1h' }
     );
 
-    return token;
+    const userObj = user.toObject();
+    const {
+      password: userPassword, // Cambiar el nombre durante la desestructuración
+      updatedAt,
+      createdAt,
+      ...userWithoutSensitiveData
+    } = userObj;
+
+    return { token, user: userWithoutSensitiveData };
   } catch (error) {
     throw new Error(error.message);
   }
 };
+
+
 
 module.exports = {
   registerUser,
