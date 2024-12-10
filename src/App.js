@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 const colors = require('colors');
 
 const routes = require("./routes/index.js"); 
-const connectDB = require(".../config/db"); 
+const connectDB = require("../config/db"); 
 const { sendMessageToOpenAI } = require("../apis/chatGtp.js");
 
 dotenv.config();
